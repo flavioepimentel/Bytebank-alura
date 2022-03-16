@@ -13,14 +13,14 @@ class ContaCorrente:
     def extrato(self):
         print("Saldo disponível: {}".format(str(self.__saldo)))
 
-    def autorization(self, valor):
+    def __autorization(self, valor):
         if self.__saldo + self.__limite - valor < 0:
             return False
         else:
             return True
 
     def saque(self, valor):
-        if self.autorization(valor):
+        if self.__autorization(valor):
             self.__saldo -= valor
         else:
             print('Valor não disponível')
@@ -45,4 +45,16 @@ class ContaCorrente:
     @limite.setter
     def limite(self, limite):
         self.__limite = limite
+
+    @staticmethod
+    def codigos_bancos():
+        return { 
+            'BB':'001',
+            'Caixa':'104',
+            'Bradesco':'237',
+            'Itau':'341',
+            'Inter':'077',
+            'Nubank': '260',
+            'Neon':'735',
+            }
 
