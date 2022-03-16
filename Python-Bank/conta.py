@@ -13,14 +13,14 @@ class ContaCorrente:
     def extrato(self):
         print("Saldo disponível: {}".format(str(self.__saldo)))
 
-    def saldo_disponivel(self, valor):
-        if self.__saldo - valor < 0:
+    def autorization(self, valor):
+        if self.__saldo + self.__limite - valor < 0:
             return False
         else:
             return True
 
     def saque(self, valor):
-        if self.saldo_disponivel(valor):
+        if self.autorization(valor):
             self.__saldo -= valor
         else:
             print('Valor não disponível')
@@ -31,16 +31,18 @@ class ContaCorrente:
     def transfere(self, valor, destino):
         self.saque(valor)
         destino.deposito(valor)
-
-    def get_numero(self):
+    @property
+    def numero(self):
         return self.__numero
-
-    def get_titular(self):
+    @property
+    def titular(self):
         return self.__titular
 
-    def get_limite(self):
+    @property
+    def limite(self):
         return self.__limite
 
-    def set_limite(self, valor):
-        self.__limite = valor
+    @limite.setter
+    def limite(self, limite):
+        self.__limite = limite
 
