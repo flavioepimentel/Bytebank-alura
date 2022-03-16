@@ -1,2 +1,2 @@
 # Bytebank-alura
-Exercício de orientação a objetos escrito em C# proposto pela Alura.
+Exercício de orientação a objetos proposto pela Alura em diferentes liguagens de programação.
