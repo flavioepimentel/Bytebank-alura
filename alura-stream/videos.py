@@ -7,12 +7,23 @@ class Programa:
         genero, 
         shortDescription,
         ):
-        self.__nome = nome.title()
+        self.__nome = nome
         self.ano = ano
         self.elenco = elenco
         self.genero = genero
         self.shortDescription = shortDescription
         self.__likes = 0
+
+        @property
+        def nome(self):
+            return self.__nome
+
+        @nome.setter
+        def nome(self, nome):
+            self.__nome = nome.title()
+
+        def __str__(self):
+            return f'{self.__nome} {self.ano} {self.elenco} {self.genero} {self.shortDescription} {self.__like}'
 
 class Filmes(Programa):
     def __init__(
@@ -38,8 +49,8 @@ class Filmes(Programa):
     def plus_like(self):
         self.likes += 1
 
-    def imprime(self):
-        print(f'{self.__nome} - {self.ano} | {self.duracao} h, {self.genero} {self.__likes} ')
+    def __str__(self):
+        f'{self.__nome} - {self.ano} | {self.duracao} h, {self.genero} {self.__likes} '
 
 
 class Series(Programa):
@@ -66,5 +77,5 @@ class Series(Programa):
     def plus_like(self):
         self.likes += 1
     
-    def imprime(self):
-        print(f'{self.__nome} T{self.temporadas} - {self.ano} | {self.genero}  {self.__likes}')
+    def __str__(self):
+        return f'{self.__nome} T{self.temporadas} - {self.ano} | {self.genero}  {self.__likes}'
