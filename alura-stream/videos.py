@@ -1,20 +1,31 @@
-class Filmes:
+class Programa:
     def __init__(
         self, 
         nome, 
         ano, 
-        duracao, 
         elenco, 
         genero, 
         shortDescription,
         ):
         self.__nome = nome.title()
         self.ano = ano
-        self.duracao = duracao
         self.elenco = elenco
         self.genero = genero
         self.shortDescription = shortDescription
         self.__likes = 0
+
+class Filmes(Programa):
+    def __init__(
+        self,
+        nome, 
+        ano, 
+        elenco, 
+        genero, 
+        shortDescription,
+        duracao, 
+        ):
+        super().__init__(nome, ano, elenco, genero, shortDescription)
+        self.duracao = duracao
 
     @property
     def nome(self):
@@ -28,9 +39,9 @@ class Filmes:
         self.likes += 1
 
 
-class Series:
+class Series(Programa):
     def __init__(
-        self, 
+        self,
         nome, 
         ano, 
         elenco, 
@@ -38,13 +49,8 @@ class Series:
         shortDescription,
         temporadas,
         ):
-        self.__nome = nome.title()
-        self.ano = ano
-        self.elenco = elenco
-        self.genero = genero
-        self.shortDescription = shortDescription
+        super().__init__(nome, ano, elenco, genero, shortDescription)
         self.temporadas = temporadas
-        self.__likes = 0
 
     @property
     def nome(self):
