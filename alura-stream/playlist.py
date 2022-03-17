@@ -47,6 +47,9 @@ vingador.newLike()
 
 
 lista = [vingador, robot]
+playlist = Playlist("nome qualquer", lista)
 
-for programa in lista:
+
+for programa in playlist:
     print(programa)
+print(f'Tamanho {len(playlist)}')
