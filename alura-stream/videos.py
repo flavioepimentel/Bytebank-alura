@@ -38,6 +38,9 @@ class Filmes(Programa):
     def plus_like(self):
         self.likes += 1
 
+    def imprime(self):
+        print(f'{self.__nome} - {self.ano} | {self.duracao} h, {self.genero} {self.__likes} ')
+
 
 class Series(Programa):
     def __init__(
@@ -62,3 +65,6 @@ class Series(Programa):
 
     def plus_like(self):
         self.likes += 1
+    
+    def imprime(self):
+        print(f'{self.__nome} T{self.temporadas} - {self.ano} | {self.genero}  {self.__likes}')
