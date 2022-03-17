@@ -30,7 +30,7 @@ class Programa:
         self._likes += 1
 
     def __str__(self):
-        return f'{self.__nome} {self.ano} {self.elenco} {self.genero} {self.shortDescription} {self.likes}'
+        return f'Nome: {self.nome} Likes: {self.likes}'
 
 
 class Filmes(Programa):
@@ -47,7 +47,7 @@ class Filmes(Programa):
         self.duracao = duracao
 
     def __str__(self):
-        f'{self.__nome} - {self.ano} | {self.duracao} h, {self.genero} {self.likes} '
+        return f'{self.nome} - {self.ano} | {self.duracao} h, {self.genero} {self.likes} '
 
 
 class Series(Programa):
@@ -64,5 +64,5 @@ class Series(Programa):
         self.temporadas = temporadas
     
     def __str__(self):
-        return f'{self.__nome} T{self.temporadas} - {self.ano} | {self.genero}  {self.likes}'
+        return f'{self.nome} - {self.temporadas}T - {self.ano} | {self.genero} Likes: {self.likes}'
 
