@@ -12,18 +12,26 @@ class Programa:
         self.elenco = elenco
         self.genero = genero
         self.shortDescription = shortDescription
-        self.__likes = 0
+        self._likes = 0
 
-        @property
-        def nome(self):
-            return self.__nome
+    @property
+    def nome(self):
+        return self.__nome
 
-        @nome.setter
-        def nome(self, nome):
-            self.__nome = nome.title()
+    @nome.setter
+    def nome(self, nome):
+        self.__nome = nome.title()
 
-        def __str__(self):
-            return f'{self.__nome} {self.ano} {self.elenco} {self.genero} {self.shortDescription} {self.__like}'
+    @property
+    def likes(self):
+        return self._likes
+
+    def newLike(self):
+        self._likes += 1
+
+    def __str__(self):
+        return f'Nome: {self.nome} Likes: {self.likes}'
+
 
 class Filmes(Programa):
     def __init__(
@@ -38,19 +46,8 @@ class Filmes(Programa):
         super().__init__(nome, ano, elenco, genero, shortDescription)
         self.duracao = duracao
 
-    @property
-    def nome(self):
-        return self.__nome
-
-    @property
-    def likes(self):
-        return self.__likes
-
-    def plus_like(self):
-        self.likes += 1
-
     def __str__(self):
-        f'{self.__nome} - {self.ano} | {self.duracao} h, {self.genero} {self.__likes} '
+        return f'{self.nome} - {self.ano} | {self.duracao} h, {self.genero} {self.likes} '
 
 
 class Series(Programa):
@@ -65,17 +62,7 @@ class Series(Programa):
         ):
         super().__init__(nome, ano, elenco, genero, shortDescription)
         self.temporadas = temporadas
-
-    @property
-    def nome(self):
-        return self.__nome
-
-    @property
-    def likes(self):
-        return self.__likes
-
-    def plus_like(self):
-        self.likes += 1
     
     def __str__(self):
-        return f'{self.__nome} T{self.temporadas} - {self.ano} | {self.genero}  {self.__likes}'
+        return f'{self.nome} - {self.temporadas}T - {self.ano} | {self.genero} Likes: {self.likes}'
+
